@@ -1,10 +1,35 @@
 {
-  
-  
   "version": 2,
-  
-  "projects": {},
+  "projects": {
+    "back-end": {
+      "root": "apps/back-end",
+      "sourceRoot": "apps/back-end/src",
+      "projectType": "application",
+      "prefix": "back-end",
+      "generators": {},
+      "targets": {
+        "build": {
+          "executor": "nx-loopback-next:build",
+          "options": {
+            "main": "apps/back-end/src/index.js",
+            "appPath": "apps/back-end",
+            "tsConfig": "tsconfig.json"
+          },
+          "configurations": {}
+        },
+        "serve": {
+          "executor": "nx-loopback-next:execute",
+          "options": {
+            "buildTarget": "back-end:build",
+            "appPath": "apps/back-end",
+            "NODE_ENV": "development"
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
-  }
+  },
+  "defaultProject": "back-end"
 }

@@ -23,5 +23,9 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "back-end": {
+      "tags": []
+    }
+  }
 }
