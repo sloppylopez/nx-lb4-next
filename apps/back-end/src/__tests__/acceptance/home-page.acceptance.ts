@@ -1,16 +1,16 @@
-import {Client} from '@loopback/testlab';
-import {BackEndApplication} from '../..';
+import {Client, expect} from '@loopback/testlab';
+import {BackEndApplication} from '../../';
 import {setupApplication} from './test-helper';
 
 describe('HomePage', () => {
   let app: BackEndApplication;
   let client: Client;
 
-  before('setupApplication', async () => {
+  beforeAll(async () => {
     ({app, client} = await setupApplication());
   });
 
-  after(async () => {
+  afterAll(async () => {
     await app.stop();
   });
 
@@ -27,5 +27,10 @@ describe('HomePage', () => {
       .expect(200)
       .expect('Content-Type', /text\/html/)
       .expect(/<title>LoopBack API Explorer/);
+  });
+
+  it('invokes GET /ping', async () => {
+    const res = await client.get('/ping').expect(200);
+    expect(res.body).to.containEql({greeting: 'Hello from LoopBack'});
   });
 });

@@ -1,5 +1,22 @@
 {
   "version": 2,
+  "cli": {
+    "defaultCollection": "@nrwl/next"
+  },
+  "defaultProject": "back-end",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  },
   "projects": {
     "back-end": {
       "root": "apps/back-end",
@@ -11,7 +28,7 @@
         "build": {
           "executor": "nx-loopback-next:build",
           "options": {
-            "main": "apps/back-end/src/index.js",
+            "main": "apps/back-end/index.js",
             "appPath": "apps/back-end",
             "tsConfig": "tsconfig.json"
           },
@@ -24,12 +41,93 @@
             "appPath": "apps/back-end",
             "NODE_ENV": "development"
           }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/back-end"],
+          "options": {
+            "jestConfig": "apps/back-end/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "front-end": {
+      "root": "apps/front-end",
+      "sourceRoot": "apps/front-end",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/front-end",
+            "outputPath": "dist/apps/front-end"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "front-end:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "front-end:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "front-end:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/front-end"],
+          "options": {
+            "jestConfig": "apps/front-end/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/front-end/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "front-end-e2e": {
+      "root": "apps/front-end-e2e",
+      "sourceRoot": "apps/front-end-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/front-end-e2e/cypress.json",
+            "tsConfig": "apps/front-end-e2e/tsconfig.e2e.json",
+            "devServerTarget": "front-end:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "front-end:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/front-end-e2e/**/*.{js,ts}"]
+          }
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  },
-  "defaultProject": "back-end"
+  }
 }

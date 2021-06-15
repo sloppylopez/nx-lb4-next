@@ -1,8 +1,4 @@
 {
-  "npmScope": "nx-lb4",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -10,6 +6,10 @@
     },
     ".eslintrc.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "nx-lb4",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -26,6 +26,15 @@
   "projects": {
     "back-end": {
       "tags": []
+    },
+    "front-end": {
+      "tags": []
+    },
+    "front-end-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "front-end"
+      ]
     }
   }
 }

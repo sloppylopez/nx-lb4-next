@@ -7,7 +7,7 @@ import {
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
-import path from 'path';
+import * as path from 'path';
 import {MySequence} from './sequence';
 
 export class BackEndApplication extends BootMixin(
@@ -34,7 +34,7 @@ export class BackEndApplication extends BootMixin(
       controllers: {
         // Customize ControllerBooter Conventions here
         dirs: ['controllers'],
-        extensions: ['.controller.js'],
+        extensions: ['.controller.js','.controller.ts'],
         nested: true,
       },
     };

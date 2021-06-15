@@ -1,11 +1,19 @@
 {
-    "$schema": "http://json.schemastore.org/tsconfig",
-    "extends": "@loopback/build/config/tsconfig.common.json",
-    "compilerOptions": {
-        "outDir": "../../dist/apps/back-end",
-        "rootDir": "src"
-    },
-    "include": [
-        "src"
-    ]
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node", "jest"],
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "include": ["src"],
+  "outDir": "../../dist/apps/back-end",
+  "rootDir": "src",
+  "exclude": ["node_modules"]
 }

@@ -1,0 +1,9 @@
+set -ex
+yarn create nx-workspace --name nx-lb4 --preset empty --interactive false --nx-cloud false
+yarn add -D @angular-devkit/core
+yarn add -D @angular-devkit/schematics
+yarn add nx-loopback-next
+yarn add -D @nrwl/cypress
+yarn add -D @nrwl/next
+nx g nx-loopback-next:app --name back-end
+nx g @nrwl/next:application --name front-end --style scss
