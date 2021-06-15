@@ -1,5 +1,5 @@
 import {Client, expect} from '@loopback/testlab';
-import {BackEndApplication} from '../../';
+import {BackEndApplication} from '../..';
 import {setupApplication} from './test-helper';
 
 describe('HomePage', () => {
