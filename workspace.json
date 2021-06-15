@@ -51,6 +51,14 @@
             "jestConfig": "apps/back-end/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/back-end/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
         }
       }
     },
