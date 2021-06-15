@@ -44,7 +44,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/back-end"],
+          "outputs": [
+            "coverage/apps/back-end"
+          ],
           "options": {
             "jestConfig": "apps/back-end/jest.config.js",
             "passWithNoTests": true
@@ -59,7 +61,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/next:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "root": "apps/front-end",
             "outputPath": "dist/apps/front-end"
@@ -89,7 +93,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/front-end"],
+          "outputs": [
+            "coverage/apps/front-end"
+          ],
           "options": {
             "jestConfig": "apps/front-end/jest.config.js",
             "passWithNoTests": true
@@ -98,7 +104,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/front-end/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/front-end/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         }
       }
@@ -124,7 +132,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/front-end-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/front-end-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
