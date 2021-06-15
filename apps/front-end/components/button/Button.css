@@ -1,0 +1,36 @@
+.default {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.default:focus {
+  outline: none;
+}
+
+.disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+.small {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.medium {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+.large {
+  font-size: 16px;
+  padding: 12px 16px;
+}
+
+.oval {
+  border-radius: 4px;
+}
+
+.rectangular {
+  border-radius: 0;
+}

@@ -18,23 +18,22 @@
           "build",
           "lint",
           "test",
-          "e2e"
+          "e2e",
+          "build-storybook"
         ]
       }
     }
   },
   "projects": {
     "back-end": {
-      "tags": []
+      "tags": ["scope:server"]
     },
     "front-end": {
-      "tags": []
+      "tags": ["scope:client"]
     },
     "front-end-e2e": {
-      "tags": [],
-      "implicitDependencies": [
-        "front-end"
-      ]
+      "tags": ["scope:client"],
+      "implicitDependencies": ["front-end"]
     }
   }
 }
