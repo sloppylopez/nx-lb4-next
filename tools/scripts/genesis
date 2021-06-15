@@ -1,9 +1,24 @@
+##This file contains the dependencies and commands used to create the scaffolding for this seed.
 set -ex
+#Create workspace
 yarn create nx-workspace --name nx-lb4 --preset empty --interactive false --nx-cloud false
+#Add loopback community supported plugin
+yarn add nx-loopback-next
+#Add nx offically supported plugin
 yarn add -D @angular-devkit/core
 yarn add -D @angular-devkit/schematics
-yarn add nx-loopback-next
 yarn add -D @nrwl/cypress
 yarn add -D @nrwl/next
+yarn add -D @nrwl/next
+yarn add -D @nrwl/cypress
+yarn add -D @nrwl/jest
+yarn add -D @nrwl/linter
+yarn add -D @nrwl/next
+yarn add -D @nrwl/react
+yarn add -D @nrwl/storybook
+yarn add -D @nrwl/web
+yarn add -D @nrwl/workspace
+#Create loopback app scaffolding
 nx g nx-loopback-next:app --name back-end
+#Create next app scaffolding
 nx g @nrwl/next:application --name front-end --style scss
